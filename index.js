@@ -34,7 +34,7 @@ exports.restrict = function(config) {
 
   return function(req, res, next) {
     if (req.session.loggedIn) return next();
-    if (config.rest) return res.send(401);
+    if (config.rest) return res.sendStatus(401);
     res.redirect(route + '?redirect=' + req.originalUrl);
   };
 
